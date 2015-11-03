@@ -1,5 +1,9 @@
+<%@page import="tp2015dds.daos.GeneralDao"%>
+<%@page import="tp2015dds.beans.Condicion"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -104,6 +108,14 @@
 <input type="hidden" id="sexo">
 
 <h1 align="center">Registro de usuario</h1>
+	
+	
+	<% 
+	List <Condicion> condiciones;
+	GeneralDao generalDao=new GeneralDao();
+	condiciones=generalDao.leerTodasLasCondiciones();		
+	%>
+		
 	<form action="registerWeb.jr" method="POST"
 		onsubmit="return camposValidos();">
 		<table align="center" id="tablita">
@@ -160,13 +172,41 @@
 				<td><input type="radio" name="sex" value="femenino" checked>Mujer<br></td>
 			</tr>
 
-
+			<tr>
+				<td style="font-weight:bold;size=14px;color:black" align="center" colspan="3">Condiciones</td>
+			</tr>	
+				
+			<!--<tr>
+				<td><input type="checkbox" name="condicion" value="celiaco">Celiacio</td>
+				<td> <input type = "checkbox" name="condicion" value="diabetico">Diabetico</td>
+				<td><input type="checkbox" name="condicion" value="hipertenso">Hipertenso</td> 
+			</tr>-->	
+				<%
+				i=3;
+				
+				for (Condicion condicion : condiciones){
+					
+					if(i==3){
+						out.print("<tr>");
+						i=0;
+					}
+					i++;
+					String auxName=condicion.getIdNombre().toLowerCase();
+					out.println("<td><input type=\"checkbox\" name=\"condicion\" value="+auxName+">"+auxName+"</td>");			
+					if(i==3){
+						out.print("</tr>");			
+					}
+					
+				}
+				%>								
 			<tr>
 				<td><input type="button" value="Cancelar"></td>
 				<td><input type="submit" value="Aceptar" onClick="radioCheck()"></td>
 			</tr>
+			
+	
 		</table>
-
+		
 	</form>
 
 

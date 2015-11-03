@@ -15,5 +15,6 @@
 		<property name="format_sql">true</property>
 		<mapping class="tp2015dds.beans.Usuario"/>
 		<mapping class="tp2015dds.beans.Grupo"/>
+		<mapping class="tp2015dds.beans.Condicion"/>
 	</session-factory>
 </hibernate-configuration>

@@ -16,8 +16,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import tp2015dds.beans.Condicion;
 import tp2015dds.beans.Grupo;
 import tp2015dds.beans.Usuario;
+import tp2015dds.daos.GeneralDao;
 import tp2015dds.daos.UsuarioDao;
 import tp2015dds.util.HibernateUtil;
 
@@ -55,11 +57,13 @@ public class LoginServlet extends HttpServlet {
 		UsuarioDao usuarioDao = new UsuarioDao();
 		Usuario usuarioEncontrado = null;
 		HttpSession sessionServlet = request.getSession(true);
-//		List<Grupo> grups;
+		
+		///////////////
+
+		///////////////
+		
 		try {
 			usuarioEncontrado = usuarioDao.buscar(usuario);
-//			grups=usuarioDao.grupos(usuario);		
-//			System.out.println(grups.size());
 			if(usuarioEncontrado!=null)
 			System.out.println(usuarioEncontrado.getGrupos().size());
 		} catch (Exception e) {
@@ -83,13 +87,13 @@ public class LoginServlet extends HttpServlet {
 		} else {
 
 			PrintWriter out = response.getWriter();
+			
 			out.println("<script>");
 			out.println("alert('User or password incorrect');");
 			out.println("location='login.jsp';");
 			out.println("</script>");
 			out.close();
-			
-			//response.sendRedirect("login.jsp"); esto no va
+			//response.sendRedirect("login.jsp");// esto no va poeque tura una exception
 			
 		}
 
