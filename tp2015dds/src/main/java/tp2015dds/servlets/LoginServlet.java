@@ -23,7 +23,7 @@ import tp2015dds.daos.GeneralDao;
 import tp2015dds.daos.UsuarioDao;
 import tp2015dds.util.HibernateUtil;
 
-//@WebServlet("/loginWeb")
+//@WebServlet("/loginWeb.jr")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -4,19 +4,29 @@
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
-  
-  
+ 
+ 
   <servlet>
-    <description>
-		</description>
+    <description> </description>
     <display-name>LoginServlet</display-name>
     <servlet-name>loginServlet</servlet-name>
     <servlet-class>tp2015dds.servlets.LoginServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>loginServlet</servlet-name>
     <url-pattern>/loginWeb.jr</url-pattern>
   </servlet-mapping>
-
+  
+ <servlet>
+ 	<description></description>
+ 	<display-name>RegistroServlet</display-name>
+ 	<servlet-name> registroServlet</servlet-name>
+ 	<servlet-class>tp2015dds.servlets.RegistroServlet</servlet-class>
+ </servlet> 
+  
+  <servlet-mapping> 
+  	<servlet-name>registroServlet</servlet-name>
+  	<url-pattern>/registrado.jr</url-pattern> 
+  </servlet-mapping>
+   
 </web-app>

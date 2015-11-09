@@ -86,6 +86,18 @@
 		
 	}
 	
+	
+	
+	function allCheck(){
+		var checkboxes = document.getElementsByName("condicion");
+		var i=0;
+		for(;i<checkboxes.length;i++){
+			if(checkboxes[i].checked)
+				alert(checkboxes[i].value);			
+		}
+	}
+	
+	
 </script>
 
 
@@ -116,8 +128,7 @@
 	condiciones=generalDao.leerTodasLasCondiciones();		
 	%>
 		
-	<form action="registerWeb.jr" method="POST"
-		onsubmit="return camposValidos();">
+	<form action="registrado.jr" method="POST" onsubmit="return camposValidos();">
 		<table align="center" id="tablita">
 			<tr>
 				<td style="font-weight: bold; size =20px; color: black;" colspan="3">Registrese
@@ -153,7 +164,7 @@
 					align="right">Edad*:</td>
 				<!--  <td colspan="2"><input type="text" name="edad" id="edad" ></td> -->
 
-				<td colspan="2"><select name=grupo>
+				<td colspan="2"><select name="edad">
 						<%
 							int i;
 							for (i = 18; i < 70; i++) {
@@ -198,19 +209,24 @@
 					}
 					
 				}
+				
+				if(i!=3)
+					out.print("</tr>");
+				
+				
+				
 				%>								
 			<tr>
 				<td><input type="button" value="Cancelar"></td>
 				<td><input type="submit" value="Aceptar" onClick="radioCheck()"></td>
 			</tr>
 			
-	
+			<tr>
+				<td><input type="button" value="Ver checked's" onClick="allCheck()"></td>
+			</tr>
 		</table>
 		
 	</form>
-
-
-
 
 </body>
 </html>
